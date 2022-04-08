@@ -36,7 +36,7 @@ public class Application extends javafx.application.Application {
                 System.out.println("talkType[0好友/1群组]：" + talkType);
                 System.out.println("talkId：" + talkId);
                 System.out.println("msg：" + msg);
-                System.out.println("msgType[0文字消息/1固定表情]：" + msgType);
+                System.out.println("msgType[0文字消息/1固定表情/2文件]：" + msgType);
             }
 
             @Override
@@ -99,6 +99,7 @@ public class Application extends javafx.application.Application {
         chat.addTalkMsgRight("5307397", "f_14", 1, new Date(), true, true, false);
         chat.addTalkMsgGroupLeft("5307397", "1000002", "拎包冲", "01_50", "推我过忘川", 0, new Date(), true, false, true);
         chat.addTalkMsgGroupLeft("5307397", "1000003", "铁锤", "03_50", "奈河桥边的姑娘", 0, new Date(), true, false, true);
+        chat.addTalkMsgGroupLeft("5307397", "1000003", "铁锤", "03_50", "C:\\Users\\mufanz\\OneDrive - my.swjtu.edu.cn\\毕业设计\\中期报告\\张慕帆文件加密-中期报告-修改1docx.doc", 2, new Date(), true, false, true);
         chat.addTalkMsgGroupLeft("5307397", "1000004", "哈尼克兔", "04_50", "等我回头看", 0, new Date(), true, false, true);
         chat.addTalkMsgGroupLeft("5307397", "1000004", "哈尼克兔", "04_50", "f_25", 1, new Date(), true, false, true);
 

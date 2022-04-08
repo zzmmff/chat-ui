@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/object-diagram
+
+
+interface IChatEvent
+interface IChatMethod
+abstract ChatInit
+
+Stage <|-- UIObject : 继承Stage类
+ChatInit --|>  UIObject : 继承UIObject类
+
+ChatInit --* ChatView
+IChatEvent --* ChatView
+ChatInit --* ChatEventDefine
+ChatController --|> ChatInit
+ChatController ..|> IChatMethod
+ChatEventDefine --* ChatController
+
+Stage : show()
+IChatMethod : doShow()
+
+
+abstract class  UIObject{
+
+    - root
+    -xOffset
+    -yOffset
+    +move()
+    +initView()
+    +initEventDefine()
+}
+
+class ChatEventDefine{
+    -ChatInit
+    -barChat() : 聊天界面
+    -barFriend() :好友按钮
+}
+
+
+class ElementTalk{
+}
+@enduml

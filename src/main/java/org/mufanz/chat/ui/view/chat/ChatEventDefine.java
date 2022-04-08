@@ -3,9 +3,11 @@ package org.mufanz.chat.ui.view.chat;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 import org.mufanz.chat.ui.view.chat.data.TalkBoxData;
 import org.mufanz.chat.ui.view.face.FaceController;
 
+import java.io.File;
 import java.util.Date;
 
 /**
@@ -30,6 +32,7 @@ public class ChatEventDefine {
         doEventTextSend();   // 发送消息事件[键盘]
         doEventTouchSend();  // 发送消息事件[按钮]
         doEventToolFace();   // 表情窗体
+        doEventToolFile();   //文件
     }
 
     // 最小化
@@ -187,6 +190,33 @@ public class ChatEventDefine {
         tool_face.setOnMousePressed(event -> {
             face.doShowFace(chatMethod.getToolFaceX(), chatMethod.getToolFaceY());
         });
+    }
+
+    private void doEventToolFile() {
+        Button tool_file = chatInit.$("tool_file", Button.class);
+        tool_file.setOnMousePressed(event -> {
+            doSendFile(chatInit.x(), chatInit.y());
+        });
+    }
+
+    private void doSendFile(double x, double y) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("选择文件");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All Files", "*.*"));
+        File file = fileChooser.showOpenDialog(chatInit);
+        if (null != file) {
+            MultipleSelectionModel selectionModel = chatInit.$("talkList", ListView.class).getSelectionModel();
+            Pane selectedItem = (Pane) selectionModel.getSelectedItem();
+
+            //对话信息
+            TalkBoxData talkBoxData = (TalkBoxData) selectedItem.getUserData();
+            String msg = file.getAbsolutePath();
+            Date msgDate = new Date();
+            // 发送消息  交给客户端实现
+            chatEvent.doSendMsg(chatInit.userId, talkBoxData.getTalkId(), talkBoxData.getTalkType(), msg, 2, msgDate);
+            // 发送事件给自己添加消息
+            chatMethod.addTalkMsgRight(talkBoxData.getTalkId(), msg, 2, msgDate, true, true, false);
+        }
     }
 
 }

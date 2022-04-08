@@ -190,7 +190,7 @@ public class ChatController extends ChatInit implements IChatMethod {
         listView.getItems().add(right);
         // 滚动条
         listView.scrollTo(right);
-        talkElement.fillMsgSketch(0 == msgType ? msg : "[表情]", msgData);
+        talkElement.fillMsgSketch(0 == msgType ? msg : 1 == msgType ? "[表情]" : "[文件]", msgData);
         // 设置位置&选中
         chatView.updateTalkListIdxAndSelected(0, talkElement.pane(), talkElement.msgRemind(), idxFirst, selected, isRemind);
     }

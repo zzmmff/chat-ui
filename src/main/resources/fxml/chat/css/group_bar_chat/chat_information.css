@@ -170,3 +170,36 @@
 .box_infoContent_right, .box_infoContent_right .content,.box_infoContent_right:focused{
      -fx-background-color: #9eea6a;
 }
+
+/*文件*/
+.box_infoContent_file_right{
+    -fx-background-image: url("/fxml/chat/img/system/talk_file.png");
+    /*-fx-background-position: right 20% bottom 50%;*/
+    -fx-background-repeat: no-repeat;
+     -fx-background-position: right;
+    -fx-border-width: 0 1px 1px 0;
+    -fx-border-radius: 2px;
+    -fx-background-radius: 2px;
+    -fx-control-inner-background: #9eea6a;
+    -fx-control-inner-radius:2px;
+    -fx-background-color: #ffffff;
+    -fx-font-family: "微软雅黑";
+    -fx-font-style: italic;
+    -fx-text-fill: #000000;
+    -fx-font-size: 16px;
+    /*-fx-white-space: break-word;*/
+    -fx-overflow: hidden;
+    -fx-text-overflow: ellipsis;
+    -fx-text-align: left;
+    /*-fx-alignment: center-right;*/
+}
+
+.box_infoContent_file_name{
+    -fx-font-family: "微软雅黑";
+    -fx-font-style: italic;
+    -fx-text-fill: #000000;
+    -fx-font-size: 16px;
+    -fx-overflow: hidden;
+    -fx-text-overflow: ellipsis;
+    -fx-text-align: left;
+}

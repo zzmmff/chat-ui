@@ -15,3 +15,16 @@
 #tool_face:hover{
     -fx-background-image: url("/fxml/chat/img/system/face_1.png");
 }
+
+
+#tool_file,#tool_file:pressed{
+    -fx-background-size: 32px 32px;
+    -fx-background-color: transparent;
+    -fx-background-image: url("/fxml/chat/img/system/file_0.png");
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+}
+
+#tool_file:hover{
+    -fx-background-image: url("/fxml/chat/img/system/file_1.png");
+}

@@ -7,6 +7,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
+ *
  */
 public abstract class UIObject extends Stage {
 
@@ -14,7 +15,7 @@ public abstract class UIObject extends Stage {
     private double xOffset;
     private double yOffset;
 
-    public  <T> T $(String id, Class<T> clazz) {
+    public <T> T $(String id, Class<T> clazz) {
         return (T) root.lookup("#" + id);
     }
 
@@ -39,19 +40,19 @@ public abstract class UIObject extends Stage {
         });
     }
 
-    public double x(){
+    public double x() {
         return getX();
     }
 
-    public double y(){
+    public double y() {
         return getY();
     }
 
-    public double width(){
+    public double width() {
         return getWidth();
     }
 
-    public double height(){
+    public double height() {
         return getHeight();
     }
 
